@@ -37,7 +37,7 @@ inputSearch.addEventListener("keypress", function(e) {
 
         getWeatherToday()
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 showWeatherToday(data)
             })
             .catch((error) => {
@@ -55,7 +55,7 @@ inputSearch.addEventListener("keypress", function(e) {
 
             getWeatherForecastDays()
                 .then((data) => {
-                    console.log(data);
+                    // console.log(data);
                     getSortedForecastDays(data.list);
                     weatherForDay(data.list);
                     // console.log(data.list);
@@ -73,7 +73,7 @@ inputSearch.addEventListener("keypress", function(e) {
 
             getWeatherToday()
                 .then((data) => {
-                    console.log(data);
+                    // console.log(data);
                     showWeatherToday(data)
                 });
         });
@@ -91,7 +91,7 @@ btnSearch.addEventListener("click", function() {
 
     getWeatherToday()
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             showWeatherToday(data)
         })
         .catch((error) => {
@@ -109,7 +109,7 @@ btnSearch.addEventListener("click", function() {
 
         getWeatherForecastDays()
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 getSortedForecastDays(data.list);
                 weatherForDay(data.list);
                 // console.log(data.list);
@@ -127,7 +127,7 @@ btnSearch.addEventListener("click", function() {
 
         getWeatherToday()
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 showWeatherToday(data)
             });
     });
@@ -145,6 +145,7 @@ function showWeatherToday(data) {
         <div class="content-block">
             <div class="content-header">
                 <div class="header-name">CURRENT WEATHER</div>
+                <div class="header-city-name">${data.name}</div>
                 <div class="header-date">${todayDate(date)}</div>
             </div>
             <div class="content-info">
@@ -152,7 +153,7 @@ function showWeatherToday(data) {
                     <div class="info-weather-image">
                         <img class="img-weather" src="${getWeatherIcon(data.weather[0].icon)}" alt="">
                     </div>
-                    <div class="info-weather-text">${data.weather[0].description}.</div>
+                    <div class="info-weather-text">${data.weather[0].description}</div>
                 </div>
                 <div class="info-temperature">
                     <div class="info-temperature-header">${Math.round(data.main.temp)}<sup>o</sup>C</div>
@@ -263,7 +264,7 @@ function getSortedForecastDays(data) {
         fiveDays.shift();
     }
 
-    console.log(fiveDays);
+    // console.log(fiveDays);
     showWeatherForecastDays(fiveDays);
 }
 
@@ -308,7 +309,7 @@ function dayOfMonth(day) {
 
 
 function weatherForDay(data) {
-    console.log(data);
+    // console.log(data);
     let daysBlock = document.querySelectorAll(".forecast-block");
     for (let day of daysBlock) {
         day.addEventListener("click", function() {
@@ -319,7 +320,7 @@ function weatherForDay(data) {
                     timeDay.push(time);
                 }
             }
-            console.log(timeDay);
+            // console.log(timeDay);
             showWeatherTimeDay(timeDay);
         });
     }
@@ -337,7 +338,9 @@ function showWeatherTimeDay(timeDay) {
                 <div class="hourly-day-content">
                     <div class="day-content-name">
                         <div class="day-name">${dayOfWeek(timeDay[0].dt)}</div>
-                        <div class="zero-block"></div>
+                        <div class="zero-block">
+                            <img src="${getWeatherIcon(timeDay[0].weather[0].icon)}" alt="">
+                        </div>
                         <div class="hourly-forecast">Forecast</div>
                         <div class="hourly-temp">Temp (<sup>o</sup>C)</div>
                         <div class="hourly-real-feel">RealFeel</div>

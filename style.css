@@ -6,14 +6,20 @@
 
 body {
     width: 100%;
-    background-color: Gainsboro;
+    background-color: rgb(132, 189, 249);
     font-size: calc(0.7rem + 0.7vmin);
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+    margin: 0px 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}
+
 .container-search {
-    width: 85%;
-    margin: 1vw auto;
+    width: 70%;
+    margin: 2vw auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -22,9 +28,10 @@ body {
 
 h2 {
     color: MediumSeaGreen;
+    text-shadow: 1px 1px 2px black;
 }
 
-.input-btn-search {
+.block-search {
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -34,10 +41,11 @@ h2 {
 
 .search {
     width: 40%;
-    height: 3vh;
+    height: 5vh;
     padding-left: 5px;
     outline: none;
     border: 1px solid MediumSeaGreen;
+    border-radius: 5px;
 }
 
 .search:focus {
@@ -45,31 +53,37 @@ h2 {
 }
 
 .btn-search {
-    width: 2vw;
-    height: 3vh;
-    margin-left: 10px;
+    height: 5vh;
+    background-color: MediumSeaGreen; 
     border: none;
-    background-color: Gainsboro;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    margin: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
 }
 
 .btn-search:hover {
-    border-bottom: 1.5px solid MediumSeaGreen;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.contaiher-butoon {
-    width: 100%;
-    padding: 0 7.5%;
-    background-image: url(image/background.png);
+.container-days {
+    width: 70%;
+    margin: 0 auto;
 }
 
 .btn-today,
 .btn-fiveDays {
-    background-color: black;
+    height: 6.5vh;
+    background-color: rgb(132, 189, 249);
     color: white;
+    font-size: 17px;
     font-weight: bold;
-    border: none;
-    padding: 1vw 1.5vw;
-    border-bottom: 3px solid black;
+    text-shadow: 1px 1px 2px black;
+    border: 3px solid rgb(132, 189, 249);
 }
 
 .btn-today:hover,
@@ -83,34 +97,54 @@ h2 {
 }
 
 .container-content {
-    width: 85%;
-    margin: 2vw auto;
+    width: 70%;
+    margin: 5vw auto;
 }
 
 .content-block {
     width: 100%;
     padding: 2vw;
-    background-color: snow;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .content-header {
     width: 100%;
     color: MediumSeaGreen;
     font-weight: bold;
+    text-shadow: 1px 1px 2px black;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.header-name, 
+.header-city-name, 
+.header-date {
+    margin: 5px;
 }
 
 .content-info {
     width: 100%;
-    padding-top: 3vw;
-    color: grey;
+    padding: 3vw 0;
+    color: white;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.info-weather,
+.info-temperature,
+.info-day-hours {
+    margin: 5px;
+}
+
+.info-weather-text {
+    text-align: center;
 }
 
 .info-temperature-header {
@@ -133,15 +167,17 @@ td {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .forecast-block {
-    width: 17%;
-    height: 34vh;
-    padding: 1.5vw;
-    background-color: snow;
+    width: 180px;
+    height: 260px;
+    margin: 10px;
+    padding: 20px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -149,16 +185,17 @@ td {
 }
 
 .forecast-block:hover {
-    box-shadow: 0 0 1vmin 0.3vmin dimgrey;
+    transform: translate(-10px, 10px);
 }
 
 .forecast-week-day {
     color: MediumSeaGreen;
     font-weight: bold;
+    text-shadow: 1px 1px 2px black;
 }
 
 .forecast-date {
-    color: dimgrey;
+    color: white;
     padding-top: 1vw;
 }
 
@@ -168,7 +205,7 @@ td {
 }
 
 .forecast-description {
-    color: grey;
+    color: white;
 }
 
 .container-hourly {
@@ -188,9 +225,10 @@ td {
 
 .hourly-day {
     width: 92%;
+    height: 350px;
     margin: 15% auto;
-    padding: 1.5vw;
-    background-color: snow;
+    padding: 1vw 1vw 3vw 1vw;
+    background-color: rgb(132, 189, 249);
 }
 
 .hourly-day-name {
@@ -203,6 +241,7 @@ td {
 .hourly-day-header {
     color: MediumSeaGreen;
     font-weight: bold;
+    text-shadow: 1px 1px 2px black;
     padding-bottom: 2vw;
 }
 
@@ -217,7 +256,7 @@ td {
 
 .day-content-name,
 .day-content-info {
-    height: 30vh;
+    height: 220px;
     font-size: calc(0.6rem + 0.6vmin);
     display: flex;
     flex-direction: column;
@@ -232,7 +271,7 @@ td {
 
 .day-content-info {
     width: 9.8%;
-    color: grey;
+    color: white;
 }
 
 .day-name,
@@ -241,8 +280,8 @@ td {
     font-weight: bold;
 }
 
-.zero-block {
-    height: 103px;
+.zero-block img {
+    opacity: 0;
 }
 
 .error-container {
@@ -261,18 +300,26 @@ td {
 
 .error-message {
     width: 35%;
-    height: 20vh;
+    height: 200px;
     margin: 15% auto;
+    padding: 5px;
     border-radius: 10px;
     border: 1px solid dimgrey;
     background-color: snow;
+}
+
+.error-button {
+    background-color: snow;
+}
+
+.button-close {
+    background-color: rgb(132, 189, 249); 
 }
 
 .error-button,
 .button-close {
     margin-right: 0.5vw;
     float: right;
-    background-color: snow;
     border: none;
     font-size: calc(1.2rem + 1.2vmin);
     font-weight: bold;
@@ -305,16 +352,20 @@ td {
 
 @media (max-width: 700px) {
     .container-search,
+    .container-days,
     .container-content,
     .container-forecast,
     .hourly-day {
         width: 98%;
     }
+    .hourly-day {
+        height: 250px;
+    }
     .contaiher-butoon {
         padding: 0 1%;
     }
     .forecast-block {
-        width: 19%;
+        width: 130px;
         height: 170px;
         font-size: calc(0.5rem + 0.5vmin);
     }
@@ -331,11 +382,12 @@ td {
     }
     .day-content-name,
     .day-content-info {
-        height: 130px;
+        height: 160px;
         font-size: calc(0.4rem + 0.4vmin);
     }
-    .zero-block {
-        height: 50px;
+    .zero-block img{
+        width: 40px;
+        height: 40px;
     }
     .error-message {
         height: 130px;
